@@ -12,6 +12,7 @@ import fetch from "node-fetch";
 // import { setupMasqr } from "./Masqr.js";
 import config from "./config.js";
 
+
 console.log(chalk.yellow("🚀 Starting server..."));
 
 const __dirname = process.cwd();
