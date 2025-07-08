@@ -1,0 +1,16 @@
+{
+  "name": "Valory",
+  "bio": "is ts tuff in discord",
+  "avatar": "https://cdn.discordapp.com/avatars/1333493627481096244/d0451333bf0cdafdcd3cdd6b6fb855af.webp?size=1024",
+  "music": {
+    "title": "just another useless life to everyone",
+    "artist": "imar", 
+    "file": "just-another-useless-life-to-everyone.mp3"
+  },
+  "links": [
+    { "label": "discord", "value": "luv.valory#0000", "url": "https://discord.com/users/1333493627481096244" },
+    { "label": "github", "value": "luv-valory", "url": "https://github.com/luv-valory" },
+    { "label": "twitter", "value": "@iongotonefornow", "url": "https://twitter.com/iongotonefornow" },
+    { "label": "cashapp", "value": "$ypxf", "url": "httpd://cash.app/$ypxf" }
+  ]
+}
