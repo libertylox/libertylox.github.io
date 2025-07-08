@@ -2,7 +2,7 @@ import json
 import os
 from flask import Flask, render_template, send_from_directory
 
-app = Flask(__name__)
+main = Flask(__name__)
 
 def load_config():
     config_file = 'config.json'
@@ -57,7 +57,7 @@ def load_config():
         print("Created default config.json - customize it and restart the server")
         return default_config
 
-@app.route('/')
+@main.route('/')
 def index():
     config = load_config()
     with open('static/style.css', 'r') as css_file:
@@ -66,9 +66,9 @@ def index():
         js_content = js_file.read().format(**config['theme'], **config['animations'])
     return render_template('index.html', config=config, css_content=css_content, js_content=js_content)
 
-@app.route('/static/<path:filename>')
+@main.route('/static/<path:filename>')
 def serve_static(filename):
     return send_from_directory('static', filename)
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    main.run(debug=True)
