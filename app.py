@@ -2,10 +2,10 @@ import json
 import os
 from flask import Flask, render_template, send_from_directory
 
-app = Flask(__name__)
+app = Flask(__name__, template_folder="../templates", static_folder="../static")
 
 def load_config():
-    config_file = 'config.json'
+    config_file = '../config.json'
     if os.path.exists(config_file):
         with open(config_file, 'r') as f:
             return json.load(f)
@@ -17,7 +17,7 @@ def load_config():
                 "bio": "",
                 "avatar": "",
                 "status": "",
-                "music_file": "",
+                "music_file": "your-music-file.mp3",
                 "music_title": ""
             },
             "stats": {
@@ -54,7 +54,7 @@ def load_config():
         }
         with open(config_file, 'w') as f:
             json.dump(default_config, f, indent=4)
-        print("Created default config.json - customize it and restart the server")
+        print("Created default config.json - customize it")
         return default_config
 
 @app.route('/')
@@ -68,7 +68,7 @@ def index():
 
 @app.route('/static/<path:filename>')
 def serve_static(filename):
-    return send_from_directory('static', filename)
+    return send_from_directory('../static', filename)
 
 if __name__ == '__main__':
     app.run(debug=True)
