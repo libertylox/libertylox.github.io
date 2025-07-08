@@ -1,42 +1,42 @@
 {
-    "profile": {
-        "name": "Your Name",
-        "title": "Your Title",
-        "bio": "Your bio goes here",
-        "avatar": "https://via.placeholder.com/150",
-        "status": "Available",
-        "music_file": "your-music-file.mp3",
-        "music_title": "Track Name"
-    },
-    "stats": {
-        "followers": "0",
-        "following": "0",
-        "projects": "0"
-    },
-    "social_links": {
-        "twitter": "#",
-        "github": "#",
-        "linkedin": "#",
-        "discord": "#"
-    },
-    "theme": {
-        "primary_color": "#00ffff",
-        "secondary_color": "#ff00ff",
-        "background_gradient": "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%)",
-        "intro_gradient": "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f0f 100%)",
-        "glass_opacity": "0.05",
-        "border_opacity": "0.1"
-    },
-    "animations": {
-        "enable_particles": true,
-        "enable_custom_cursor": true,
-        "enable_avatar_tracking": true,
-        "particle_count": 20,
-        "animation_speed": "3s"
-    },
-    "intro": {
-        "title": "Welcome",
-        "subtitle": "Click anywhere to enter",
-        "enable_pulse_circle": true
-    }
+  "profile": {
+    "name": "Your Name",
+    "title": "Your Title",
+    "bio": "Your bio goes here",
+    "avatar": "https://via.placeholder.com/150",
+    "status": "Available",
+    "music_file": "/static/your-music-file.mp3",
+    "music_title": "Track Name"
+  },
+  "stats": {
+    "followers": "0",
+    "following": "0",
+    "projects": "0"
+  },
+  "social_links": {
+    "twitter": "#",
+    "github": "#",
+    "linkedin": "#",
+    "discord": "#"
+  },
+  "theme": {
+    "primary_color": "#00ffff",
+    "secondary_color": "#ff00ff",
+    "background_gradient": "linear-gradient(135deg, #0a0a0a 0%, #1a1a2e 50%, #0a0a0a 100%)",
+    "intro_gradient": "linear-gradient(135deg, #1a1a2e 0%, #16213e 50%, #0f0f0f 100%)",
+    "glass_opacity": "0.05",
+    "border_opacity": "0.1"
+  },
+  "animations": {
+    "enable_particles": true,
+    "enable_custom_cursor": true,
+    "enable_avatar_tracking": true,
+    "particle_count": 20,
+    "animation_speed": "3s"
+  },
+  "intro": {
+    "title": "Welcome",
+    "subtitle": "Click anywhere to enter",
+    "enable_pulse_circle": true
+  }
 }
