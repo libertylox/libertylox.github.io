@@ -8,9 +8,9 @@
     "file": "just-another-useless-life-to-everyone.mp3"
   },
   "links": [
-    { "label": "discord", "value": "user#0000", "url": "https://discord.com/users/1333493627481096244" },
-    { "label": "github", "value": "username", "url": "https://github.com/luv-valory" },
-    { "label": "twitter", "value": "@username", "url": "https://twitter.com/iongotonefornow" },
+    { "label": "discord", "value": "luv.valory#0000", "url": "https://discord.com/users/1333493627481096244" },
+    { "label": "github", "value": "luv-valory", "url": "https://github.com/luv-valory" },
+    { "label": "twitter", "value": "@iongotonefornow", "url": "https://twitter.com/iongotonefornow" },
     { "label": "cashapp", "value": "$ypxf", "url": "httpd://cash.app/$ypxf" }
   ]
 }
