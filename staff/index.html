@@ -74,6 +74,7 @@
                 username: "_lordeli",
                 displayname: "Poptart Consumer",
                 role: "Co Founder",
+                linkmessage: "lordeli",
                 link: "/poptart"
             }
         ];
@@ -102,7 +103,7 @@
                         <div class="staff-username">@${member.username}</div>
                     </div>
                     <div class="staff-role">${member.role}</div>
-                    <a href="${member.link}" class="staff-link">${member.link}</a>
+                    <a href="${member.link}" class="staff-link">${member.linkmessage}</a>
                 `;
                 container.appendChild(staffElement);
             });
