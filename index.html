@@ -167,6 +167,12 @@
             }
         }
 
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.addEventListener("keydown", e => {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))
+                e.preventDefault();
+        });
+        
         function formatDate(dateString) {
             const date = new Date(dateString);
             const now = new Date();
@@ -187,16 +193,16 @@
                 postElement.className = 'post-item';
                 const typeClass = post.type === 'file' ? 'file-type' : post.type === 'link' ? 'link-type' : 'text-type';
                 postElement.innerHTML = `
-                    <div class="post-header">
-                        <div class="post-title">${post.title}</div>
-                        <div class="post-date">${formatDate(post.date)}</div>
-                    </div>
-                    <div class="post-content">${post.content}</div>
-                    <div class="post-meta">
-                        <span class="post-type ${typeClass}">${post.type}</span>
-                        <a class="post-link" href="${post.views}">Link</a>
-                    </div>
-                `;
+                        <div class="post-header">
+                            <div class="post-title">${post.title}</div>
+                            <div class="post-date">${formatDate(post.date)}</div>
+                        </div>
+                        <div class="post-content">${post.content}</div>
+                        <div class="post-meta">
+                            <span class="post-type ${typeClass}">${post.type}</span>
+                            <a class="post-link" href="${post.views}">Link</a>
+                        </div>
+                    `;
                 container.appendChild(postElement);
             });
         }
