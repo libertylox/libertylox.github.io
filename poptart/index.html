@@ -344,6 +344,13 @@
     <audio id="backgroundMusic" loop></audio>
 
     <script>
+
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.addEventListener("keydown", e => {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))
+                e.preventDefault();
+        });
+        
         const CONFIG_URL = '../poptart/config.json';
         const MUSIC_VOLUME = 0.3;
         
