@@ -93,6 +93,12 @@
             }
         }
 
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.addEventListener("keydown", e => {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I"))
+                e.preventDefault();
+        });
+        
         function renderStaff() {
             const container = document.getElementById('staffContainer');
             container.innerHTML = '';
