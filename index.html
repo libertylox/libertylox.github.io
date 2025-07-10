@@ -96,7 +96,7 @@
                 <div class="stat-label">total views</div>
             </div> -->
             <div class="stat-card">
-                <div class="stat-number" id="lastUpdate">07-10-25</div>
+                <div class="stat-number" id="lastUpdate"></div>
                 <div class="stat-label">last update</div>
             </div>
         </div>
@@ -200,6 +200,7 @@
             if (days < 30) return `${Math.floor(days / 7)} weeks ago`;
             return `${Math.floor(days / 30)} months ago`;
         }
+        document.getElementById('lastUpdate').innerHTML = formatDate('2025-07-10');
 
         function renderPosts() {
             const container = document.getElementById('postsContainer');
