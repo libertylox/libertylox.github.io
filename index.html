@@ -47,6 +47,7 @@
         .file-type { background: var(--accent-color); color: #000; }
         .text-type { background: #3b82f6; }
         .link-type { background: #f59e0b; }
+        .project-type { background: #f5550b; }
         .sidebar { display: flex; flex-direction: column; gap: 2rem; }
         .sidebar-widget { background: var(--secondary-bg); border: 1px solid var(--border-color); border-radius: 8px; padding: 1.5rem; }
         .widget-title { font-size: 1.1rem; font-weight: 500; color: var(--text-color); margin-bottom: 1rem; text-transform: lowercase; }
@@ -95,7 +96,7 @@
                 <div class="stat-label">total views</div>
             </div> -->
             <div class="stat-card">
-                <div class="stat-number" id="lastUpdate">07-08-25</div>
+                <div class="stat-number" id="lastUpdate">07-10-25</div>
                 <div class="stat-label">last update</div>
             </div>
         </div>
@@ -113,7 +114,7 @@
                     </div>
                     <div class="recent-item">
                         <span class="recent-title">storage used</span>
-                        <span class="recent-date">0.01gb</span>
+                        <span class="recent-date">0.019gb</span>
                     </div>
                     <!-- <div class="recent-item">
                         <span class="recent-title">last backup</span>
@@ -152,7 +153,22 @@
     </div>
     <script>
         let posts = [
-            { id: 1, title: "welcome to skids.wiki", content: "this is the official website for discord.gg/superskid scroll through or explore more options or other things within our site.", type: "text", date: "2025-07-08", views: "https://skids.wiki" },
+            { 
+                id: 1, 
+                title: "welcome to skids.wiki", 
+                content: "this is the official website for discord.gg/superskid scroll through or explore more options or other things within our site.", 
+                type: "text", 
+                date: "2025-07-08", 
+                views: "https://skids.wiki" 
+            },
+            { 
+                id: 2, 
+                title: "<b>Summer 2022</b>", 
+                content: "This is the Summer 2022 project of gorilla tag, ported to unity so you can mess around or create a game with it! We used unity 2019 for this project as thats what it requires us to use when Asset Ripping the project.", 
+                type: "project", 
+                date: "2025-10-08", 
+                views: "https://www.mediafire.com/file/9qw9ub88tenk6c8/Summer_2022_-_VALORY_MADE_THIS_YOU_SKIDDERS.zip/file" 
+            },
         ];
 
         function createParticles() {
