@@ -37,6 +37,9 @@
         .staff-role { font-size: 0.8rem; color: var(--accent-color); text-transform: lowercase; }
         .staff-link { color: var(--accent-color); text-decoration: none; font-size: 0.9rem; text-transform: lowercase; }
         .staff-link:hover { color: #22c55e; }
+        .status-indicator { position: fixed; bottom: 20px; right: 20px; display: flex; align-items: center; gap: 0.5rem; font-size: 0.8rem; color: #666; background: var(--secondary-bg); border: 1px solid var(--border-color); border-radius: 6px; padding: 0.8rem; }
+        .status-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--accent-color); animation: pulse 2s infinite; }
+        @keyframes pulse { 0%, 100% { opacity: 1; } 50% { opacity: 0.5; } }
         @media (max-width: 768px) {
             .header { padding: 1rem; }
             .nav-links { gap: 1rem; }
@@ -50,6 +53,7 @@
         <a href="/" class="logo">skids.wiki</a>
         <nav class="nav-links">
             <a href="/" class="nav-link">home</a>
+            <a href="/market" class="nav-link">market</a>
             <a href="/staff" class="nav-link">staff</a>
             <a href="https://discord.gg/superskid" class="nav-link">discord</a>
         </nav>
@@ -60,6 +64,10 @@
             <p class="hero-subtitle">meet the team behind skids.wiki</p>
         </section>
         <div class="staff-list" id="staffContainer"></div>
+    </div>
+    <div class="status-indicator">
+        <div class="status-dot"></div>
+        <span>online</span>
     </div>
     <script>
         const staff = [
@@ -122,6 +130,39 @@
             renderStaff();
         }
         document.addEventListener('DOMContentLoaded', init);
+        
+        (function() {
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            
+            document.addEventListener('keydown', e => {
+                if (e.key === 'F12' || 
+                    (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                    (e.ctrlKey && e.key === 'u') ||
+                    (e.ctrlKey && e.key === 's') ||
+                    (e.metaKey && e.altKey && e.key === 'i')) {
+                    e.preventDefault();
+                    window.location.href = "/404";
+                }
+            });
+
+            if (window.top !== window.self) {
+                document.body.innerHTML = '<h1 style="color:red">Embedding not allowed</h1>';
+            }
+
+            document.onselectstart = () => false;
+        })();
+
+        if (navigator.userAgent.includes('curl') || 
+            navigator.userAgent.includes('Wget') ||
+            navigator.userAgent.includes('Python-urllib')) {
+            document.body.innerHTML = '<h1>Access denied</h1>';
+            window.stop();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(renderProducts, 100);
+        });
     </script>
+    <div style="display:none">© skids.wiki - dont skid our website kids</div>
 </body>
 </html>

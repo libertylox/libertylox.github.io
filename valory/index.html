@@ -461,6 +461,39 @@
         }
 
         document.addEventListener('DOMContentLoaded', init);
+        
+        (function() {
+            document.addEventListener('contextmenu', e => e.preventDefault());
+            
+            document.addEventListener('keydown', e => {
+                if (e.key === 'F12' || 
+                    (e.ctrlKey && e.shiftKey && e.key === 'I') || 
+                    (e.ctrlKey && e.key === 'u') ||
+                    (e.ctrlKey && e.key === 's') ||
+                    (e.metaKey && e.altKey && e.key === 'i')) {
+                    e.preventDefault();
+                    window.location.href = "/404";
+                }
+            });
+
+            if (window.top !== window.self) {
+                document.body.innerHTML = '<h1 style="color:red">Embedding not allowed</h1>';
+            }
+
+            document.onselectstart = () => false;
+        })();
+
+        if (navigator.userAgent.includes('curl') || 
+            navigator.userAgent.includes('Wget') ||
+            navigator.userAgent.includes('Python-urllib')) {
+            document.body.innerHTML = '<h1>Access denied</h1>';
+            window.stop();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(renderProducts, 100);
+        });
     </script>
+    <div style="display:none">© skids.wiki - dont skid our website kids</div>
 </body>
 </html>
