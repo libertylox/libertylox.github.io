@@ -4,240 +4,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Market | skids.wiki</title>
-    <style>
-        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+    <title>Market | skids.wiki</title>0">
 
-        :root {
-            --bg-color: #0d0d0d;
-            --text-color: #ffffff;
-            --accent-color: #4ade80;
-            --secondary-bg: #1a1a1a;
-            --border-color: #222;
-            --highlight-color: #333;
-        }
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/css/bootstrap.min.css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="../assets/css/new.css" rel="stylesheet" type="text/css" />
+    <link href="https://unpkg.com/aos@2.3.1/dist/aos.css" rel="stylesheet">
+    <link href="https://cdn.sell.app/embed/style.css" rel="stylesheet" />
+    <script src="../assets/js/sellapp_embed.js" type="module" defer></script>
 
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-        }
-
-        body {
-            font-family: 'JetBrains Mono', monospace;
-            background: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-        }
-
-        .header {
-            position: fixed;
-            top: 0;
-            width: 100%;
-            background: rgba(17, 17, 17, 0.9);
-            backdrop-filter: blur(10px);
-            border-bottom: 1px solid var(--border-color);
-            padding: 1rem 2rem;
-            z-index: 100;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-        }
-
-        .logo {
-            font-size: 1.5rem;
-            font-weight: 600;
-            color: var(--text-color);
-            text-decoration: none;
-            text-transform: lowercase;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-        }
-
-        .nav-link {
-            color: #888;
-            text-decoration: none;
-            transition: color 0.3s ease;
-            text-transform: lowercase;
-        }
-
-        .nav-link:hover {
-            color: var(--text-color);
-        }
-
-        .main-container {
-            margin-top: 80px;
-            padding: 2rem;
-            max-width: 1200px;
-            margin-left: auto;
-            margin-right: auto;
-        }
-
-        .hero-section {
-            text-align: center;
-            padding: 4rem 0;
-            margin-bottom: 2rem;
-        }
-
-        .hero-title {
-            font-size: 3rem;
-            font-weight: 600;
-            margin-bottom: 1rem;
-        }
-
-        .hero-subtitle {
-            color: #666;
-            font-size: 1.1rem;
-        }
-
-        .products-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
-            gap: 1.5rem;
-            margin-top: 2rem;
-        }
-
-        .product-card {
-            background: var(--secondary-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 8px;
-            overflow: hidden;
-            transition: all 0.3s ease;
-        }
-
-        .product-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
-        }
-
-        .product-image {
-            width: 100%;
-            height: 400px;
-            object-fit: cover;
-            border-bottom: 1px solid var(--border-color);
-        }
-
-        .product-info {
-            padding: 1.5rem;
-        }
-
-        .product-title {
-            font-size: 1.2rem;
-            font-weight: 600;
-            margin-bottom: 0.5rem;
-        }
-
-        .product-descriptionTitle {
-            color: #aaa;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .product-description {
-            color: #aaa;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .product-descriptionTwo {
-            color: #aaa;
-            margin-bottom: 1rem;
-            font-size: 0.9rem;
-        }
-
-        .product-price {
-            font-size: 1.5rem;
-            color: var(--accent-color);
-            margin: 1rem 0;
-            font-weight: 600;
-        }
-
-        .product-meta {
-            display: flex;
-            justify-content: space-between;
-            color: #666;
-            font-size: 0.8rem;
-            margin-bottom: 1rem;
-        }
-
-        .product-type {
-            background: var(--highlight-color);
-            padding: 0.2rem 0.5rem;
-            border-radius: 3px;
-        }
-
-        .buy-btn {
-            display: block;
-            width: 100%;
-            padding: 0.7rem;
-            background: var(--accent-color);
-            color: #000;
-            border: none;
-            border-radius: 4px;
-            font-family: inherit;
-            font-weight: 600;
-            cursor: pointer;
-            text-align: center;
-            text-decoration: none;
-            transition: background 0.3s;
-        }
-
-        .buy-btn:hover {
-            background: #3bc971;
-        }
-
-        .status-indicator {
-            position: fixed;
-            bottom: 20px;
-            right: 20px;
-            display: flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-size: 0.8rem;
-            color: #666;
-            background: var(--secondary-bg);
-            border: 1px solid var(--border-color);
-            border-radius: 6px;
-            padding: 0.8rem;
-        }
-
-        .status-dot {
-            width: 8px;
-            height: 8px;
-            border-radius: 50%;
-            background: var(--accent-color);
-            animation: pulse 2s infinite;
-        }
-
-        @keyframes pulse {
-
-            0%,
-            100% {
-                opacity: 1;
-            }
-
-            50% {
-                opacity: 0.5;
-            }
-        }
-
-        @media (max-width: 768px) {
-            .products-grid {
-                grid-template-columns: 1fr;
-            }
-
-            .header {
-                padding: 1rem;
-            }
-
-            .hero-title {
-                font-size: 2rem;
-            }
-        }
-    </style>
 </head>
 
 <body>
@@ -257,14 +33,238 @@
             <p class="hero-subtitle">superskids marketplace powered by sellauth</p>
         </section>
 
-        <div class="products-grid" id="productsContainer">
-            <!-- Products will load here -->
+        <div class="shop-section wf-section" id="products" data-aos="fade-down">
+            <div class="container">
+                <div class="row">
+                    <div class="col-12 mb-4">
+                        <input type="text" class="form-control" id="search" placeholder="Search for products...">
+                        <div class="filter-buttons" id="categories">
+                            <button class="filter-button" data-target="all">
+                                <i class="me-3 fas fa-globe"></i>
+                                All Products
+                            </button>
+
+                            <button class="filter-button active" data-target="account">
+                                <i class="me-3 fas fa-server"></i>
+                                Accounts
+                            </button>
+
+                        </div>
+                    </div>
+
+                </div>
+                <div class="row" id="products">
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 product-item active" data-category="account">
+                        <div class="product-card">
+                            <div class="product-wrapper">
+                                <img src="../assets/graphics/Netflix-Graphic.png" alt="Product Image"
+                                    class="product-image">
+                                <div class="product-card-header">
+                                    <div class="product-card-header-left">
+                                        <div class="product-card-header-left-text">
+                                            <h3 class="heading-3">Netflix</h3>
+                                            <p class="body-1-medium">Lifetime</p>
+                                        </div>
+                                    </div>
+                                    <div class="product-card-header-right">
+                                        <div class="product-card-header-right-text">
+                                            <p class="body-1-medium">$1.50</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-features">
+                                    <div class="product-features-item">
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">1 Day Warranty</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Quick Delivery</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">4k Plan</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Email:Pass:Cookies</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div></div>
+                            </div>
+                            <!-- BUTTON MANAGING -->
+                            <!-- <div class="product-card-footer">
+                                <button class="main-button shine" data-sell-store="65139" data-sell-product="314163"
+                                    data-sell-darkmode="true" type="submit">Buy Now</button>
+                            </div> -->
+                            <!-- END BUTTON MANAGING -->
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 product-item active" data-category="account">
+                        <div class="product-card">
+                            <div class="product-wrapper">
+                                <img src="../assets/graphics/Spotify-Graphic.png" alt="Product Image"
+                                    class="product-image">
+                                <div class="product-card-header">
+                                    <div class="product-card-header-left">
+                                        <div class="product-card-header-left-text">
+                                            <h3 class="heading-3">Spotify</h3>
+                                            <p class="body-1-medium">Lifetime</p>
+                                        </div>
+                                    </div>
+                                    <div class="product-card-header-right">
+                                        <div class="product-card-header-right-text">
+                                            <p class="body-1-medium">$3.99</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-features">
+                                    <div class="product-features-item">
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">1 Day Warranty</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Quick Delivery</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Premium 3y+</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Email:Pass</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div></div>
+                            </div>
+                            <!-- BUTTON MANAGING -->
+                            <!-- <div class="product-card-footer">
+                                <button class="main-button shine" data-sell-store="65139" data-sell-product="314178"
+                                    data-sell-darkmode="true" type="submit">Buy Now</button>
+                            </div> -->
+                            <!-- END BUTTON MANAGING -->
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 product-item active" data-category="account">
+                        <div class="product-card">
+                            <div class="product-wrapper">
+                                <img src="../assets/graphics/Crunchyroll-Graphic.png" alt="Product Image"
+                                    class="product-image">
+                                <div class="product-card-header">
+                                    <div class="product-card-header-left">
+                                        <div class="product-card-header-left-text">
+                                            <h3 class="heading-3">Crunchyroll</h3>
+                                            <p class="body-1-medium">Lifetime</p>
+                                        </div>
+                                    </div>
+                                    <div class="product-card-header-right">
+                                        <div class="product-card-header-right-text">
+                                            <p class="body-1-medium">$1.99</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-features">
+                                    <div class="product-features-item">
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">1 Day Warranty</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Quick Delivery</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Email:Pass</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div></div>
+                            </div>
+                            <!-- BUTTON MANAGING -->
+                            <!-- <div class="product-card-footer">
+                                <button class="main-button shine" data-sell-store="65139" data-sell-product="313967"
+                                    data-sell-darkmode="true" type="submit">Buy Now</button>
+                            </div> -->
+                            <!-- END BUTTON MANAGING -->
+                        </div>
+                    </div>
+
+                    <div class="col-12 col-md-6 col-lg-4 mb-4 product-item active" data-category="account">
+                        <div class="product-card">
+                            <div class="product-wrapper">
+                                <img src="../assets/graphics/Steam-Graphic.png" alt="Product Image"
+                                    class="product-image">
+                                <div class="product-card-header">
+                                    <div class="product-card-header-left">
+                                        <div class="product-card-header-left-text">
+                                            <h3 class="heading-3">Steam Account</h3>
+                                            <p class="body-1-medium">Lifetime</p>
+                                        </div>
+                                    </div>
+                                    <div class="product-card-header-right">
+                                        <div class="product-card-header-right-text">
+                                            <p class="body-1-medium">$0.75</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div class="product-features">
+                                    <div class="product-features-item">
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">1 Day Warranty</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Quick Delivery</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">0-3 Games</p>
+                                        </div>
+                                        <div class="product-features-item-left">
+                                            <img src="../assets/graphics/feature.png" alt="">
+                                            <p class="body-2">Email:Pass</p>
+                                        </div>
+                                    </div>
+                                </div>
+                                <div></div>
+                            </div>
+                            <!-- BUTTON MANAGING -->
+                            <!-- <div class="product-card-footer">
+                                <button class="main-button shine" data-sell-store="65139" data-sell-product="313967"
+                                    data-sell-darkmode="true" type="submit">Buy Now</button>
+                            </div> -->
+                            <!-- END BUTTON MANAGING -->
+                        </div>
+                    </div>
+
+                </div>
+            </div>
         </div>
     </div>
     <div class="status-indicator">
         <div class="status-dot"></div>
         <span>online</span>
     </div>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.6.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap/5.3.2/js/bootstrap.min.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script src="assets/js/script.js"></script>
+    <script src="assets/js/main.js"></script>
+    <script src="https://unpkg.com/aos@2.3.1/dist/aos.js"></script>
+    <script>
+        AOS.init();
+    </script>
     <script>
         (function () {
             document.addEventListener('contextmenu', e => e.preventDefault());
@@ -287,81 +287,6 @@
             document.onselectstart = () => false;
         })();
 
-        const CONFIG = {
-            products: [
-                {
-                    id: "393655",
-                    name: "Netflix Lifetime",
-                    descriptionTitle: "🌟 Product Description 🌟",
-                    description: "✅ Guaranteed Subscription",
-                    descriptionTwo: "✅ Fully Checked Accounts",
-                    price: 1.50,
-                    type: "one-time",
-                    image: "../assets/graphics/Netflix-Graphic.png",
-                    checkoutUrl: "https://superskids.mysellauth.com/product/netflix"
-                },
-                {
-                    id: "393946",
-                    name: "Spotify Lifetime",
-                    descriptionTitle: "🌟 Product Description 🌟",
-                    description: "✅ Guaranteed Subscription",
-                    descriptionTwo: "✅ Fully Checked Accounts",
-                    price: 3.99,
-                    type: "one-time",
-                    image: "../assets/graphics/Spotify-Graphic.png",
-                    checkoutUrl: "https://superskids.mysellauth.com/product/spotify"
-                },
-                {
-                    id: "393655",
-                    name: "Crunchyroll Lifetime",
-                    descriptionTitle: "🌟 Product Description 🌟",
-                    description: "✅ Guaranteed Subscription",
-                    descriptionTwo: "✅ Fully Checked Accounts",
-                    price: 1.99,
-                    type: "one-time",
-                    image: "../assets/graphics/Crunchyroll-Graphic.png",
-                    checkoutUrl: "https://superskids.mysellauth.com/product/crunchyroll"
-                },
-                {
-                    id: "393655",
-                    name: "Steam Lifetime [0-3 GAMES]",
-                    descriptionTitle: "🌟 Product Description 🌟",
-                    description: "✅ Guaranteed Subscription",
-                    descriptionTwo: "✅ Fully Checked Accounts",
-                    price: 0.75,
-                    type: "one-time",
-                    image: "../assets/graphics/Steam-Graphic.png",
-                    checkoutUrl: "https://superskids.mysellauth.com/product/steam"
-                },
-            ]
-        };
-
-        function renderProducts() {
-            const container = document.getElementById("productsContainer");
-            container.innerHTML = CONFIG.products.map(p => `
-                <div class="product-card">
-                    <img src="${p.image}" class="product-image" 
-                         onerror="this.src='https://i.imgur.com/JzqY7yJ.png'">
-                    <div class="product-info">
-                        <h3>${p.name}</h3>
-                        <p>${p.descriptionTitle}</p>
-                        <p>${p.description}</p>
-                        <p>${p.descriptionTwo}</p>
-                        <div class="product-price">$${p.price.toFixed(2)}</div>
-                        <a href="${p.checkoutUrl}" class="buy-btn" target="_blank" 
-                           onclick="logPurchase('${p.id}')">Buy Now</a>
-                    </div>
-                </div>
-            `).join("");
-        }
-
-        function logPurchase(productId) {
-            fetch('/api/log', {
-                method: 'POST',
-                body: JSON.stringify({ productId, userAgent: navigator.userAgent })
-            }).catch(() => { });
-        }
-
         if (navigator.userAgent.includes('curl') ||
             navigator.userAgent.includes('Wget') ||
             navigator.userAgent.includes('Python-urllib')) {
@@ -372,7 +297,55 @@
         document.addEventListener('DOMContentLoaded', () => {
             setTimeout(renderProducts, 100);
         });
+
+        $(document).ready(function () {
+
+            $("#loading").remove();
+
+
+            $(".filter-button").click(function () {
+                $("#search").val("");
+                var value = $(this).attr('data-target');
+                // Hide all with fade effect
+                $('.product-item').fadeOut(300); // 300ms fade duration
+
+                if (value === "all") {
+                    $('.product-item').fadeIn(300);
+                } else {
+                    $('.product-item[data-category=' + value + ']').fadeIn(300);
+                }
+
+                // Manage active class
+                $(".filter-button").removeClass("active");
+                $(this).addClass("active");
+
+                AOS.init();
+            });
+
+
+            //click first button
+            $(".filter-button").first().click();
+
+
+            //make the search work
+            $("#search").on("keyup", function () {
+                //get the value of the input
+                //set filter buttons to all
+                $(".filter-button").removeClass("active");
+                $(".filter-button").first().addClass("active");
+
+
+                var value = $(this).val().toLowerCase();
+                $(".product-item").filter(function () {
+                    $(this).toggle($(this).text().toLowerCase().indexOf(value) > -1)
+                });
+
+                AOS.init();
+            });
+
+        });
     </script>
+
     <div style="display:none">© skids.wiki - dont skid our website kids</div>
 </body>
 
