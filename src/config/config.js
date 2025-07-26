@@ -5,7 +5,7 @@ export const defaultConfig = {
   music: {
     title: "just another useless life to everyone",
     artist: "imar",
-    file: "https://github.com/libertylox/libertylox.github.io/raw/refs/heads/main/valory/just-another-useless-life-to-everyone.mp3"
+    file: "https://github.com/libertylox/libertylox.github.io/raw/refs/heads/main/src/just-another-useless-life-to-everyone.mp3"
   },
   links: [
     { label: "discord", value: "vaalory#0000", url: "https://discord.com/users/1333493627481096244" },
