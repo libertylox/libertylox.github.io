@@ -5,7 +5,400 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>valory | skids.wiki</title>
-    <link rel="stylesheet" href="style.css">
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&display=swap');
+
+        :root {
+            --bg-color: #0d0d0d;
+            --text-color: #ffffff;
+            --accent-color: #4ade80;
+            --secondary-bg: #1a1a1a;
+            --border-color: #222;
+            --highlight-color: #333;
+        }
+
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: 'JetBrains Mono', monospace;
+            background: #0d0d0d;
+            color: #ffffff;
+            overflow: hidden;
+            cursor: crosshair;
+        }
+
+        .intro-container {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: #000000;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            z-index: 1000;
+            cursor: pointer;
+            transition: opacity 0.8s ease;
+        }
+
+        .intro-content {
+            text-align: center;
+            animation: fadeIn 2s ease-in-out;
+        }
+
+        .intro-text {
+            font-size: 2rem;
+            font-weight: 500;
+            color: #ffffff;
+            text-transform: lowercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 1rem;
+        }
+
+        .intro-subtitle {
+            font-size: 0.9rem;
+            color: #666666;
+            text-transform: lowercase;
+        }
+
+        @keyframes fadeIn {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
+        .main-container {
+            position: relative;
+            width: 100%;
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            opacity: 0;
+            transition: opacity 0.8s ease;
+            background: #0d0d0d;
+        }
+
+        .profile-card {
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 8px;
+            padding: 3rem;
+            width: 90%;
+            max-width: 500px;
+            text-align: center;
+            box-shadow: 0 0 50px rgba(0, 0, 0, 0.5);
+        }
+
+        .profile-avatar {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            border: 2px solid #333333;
+            margin: 0 auto 2rem;
+            display: block;
+            object-fit: cover;
+        }
+
+        .profile-name {
+            font-size: 2rem;
+            font-weight: 600;
+            color: #ffffff;
+            margin-bottom: 0.5rem;
+            text-transform: lowercase;
+        }
+
+
+        /*  */
+        .badges-card {
+            justify-content: center;
+            align-items: center;
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+            align-items: center;
+            padding: 1rem 1.5rem;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+            margin-bottom: 2rem;
+        }
+
+        .badges-badge {
+            width: 40px;
+            height: 40px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border-radius: 50%;
+            background: #2a2a2a00;
+            position: relative;
+            cursor: pointer;
+            transition: transform 0.2s ease;
+        }
+
+        .badges-badge:hover {
+            background-color: #d0d0d000;
+            transform: scale(1.1);
+        }
+
+        .badges-badge svg {
+            width: 44px;
+            height: 44px;
+            color: white;
+        }
+
+        .tooltip {
+            position: absolute;
+            bottom: 125%;
+            left: 50%;
+            transform: translateX(-50%);
+            background: #333;
+            color: #fff;
+            padding: 4px 8px;
+            border-radius: 6px;
+            font-size: 12px;
+            white-space: nowrap;
+            opacity: 0;
+            pointer-events: none;
+            transition: opacity 0.2s;
+        }
+
+        .badges-badge:hover .tooltip {
+            opacity: 1;
+        }
+
+        /*  */
+
+
+        .profile-bio {
+            font-size: 0.9rem;
+            color: #888888;
+            margin-bottom: 2rem;
+            line-height: 1.5;
+        }
+
+        .profile-links {
+            display: flex;
+            flex-direction: column;
+            gap: 0.8rem;
+        }
+
+        .profile-link {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            padding: 1rem 1.5rem;
+            background: #1a1a1a;
+            border: 1px solid #2a2a2a;
+            border-radius: 6px;
+            color: #ffffff;
+            text-decoration: none;
+            font-size: 0.9rem;
+            transition: all 0.3s ease;
+        }
+
+        .profile-link:hover {
+            background: #222222;
+            border-color: #333333;
+            transform: translateY(-2px);
+        }
+
+        .link-label {
+            font-weight: 500;
+            text-transform: lowercase;
+        }
+
+        .link-value {
+            color: #666666;
+            font-size: 0.8rem;
+        }
+
+        .music-player {
+            position: fixed;
+            bottom: 20px;
+            right: 20px;
+            background: #111111;
+            border: 1px solid #222222;
+            border-radius: 6px;
+            padding: 1rem;
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            font-size: 0.8rem;
+            z-index: 100;
+        }
+
+        .music-info {
+            display: flex;
+            flex-direction: column;
+            gap: 0.3rem;
+        }
+
+        .music-title {
+            color: #ffffff;
+            font-weight: 500;
+        }
+
+        .music-artist {
+            color: #666666;
+            font-size: 0.75rem;
+        }
+
+        .music-visualizer {
+            display: flex;
+            align-items: center;
+            gap: 2px;
+            height: 20px;
+        }
+
+        .music-bar {
+            width: 3px;
+            background: #333333;
+            border-radius: 2px;
+            animation: musicBars 1s ease-in-out infinite;
+        }
+
+        .music-bar:nth-child(1) {
+            animation-delay: 0s;
+        }
+
+        .music-bar:nth-child(2) {
+            animation-delay: 0.1s;
+        }
+
+        .music-bar:nth-child(3) {
+            animation-delay: 0.2s;
+        }
+
+        .music-bar:nth-child(4) {
+            animation-delay: 0.3s;
+        }
+
+        .music-bar:nth-child(5) {
+            animation-delay: 0.4s;
+        }
+
+        @keyframes musicBars {
+
+            0%,
+            100% {
+                height: 4px;
+            }
+
+            50% {
+                height: 16px;
+            }
+        }
+
+        .background-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            opacity: 0.05;
+            z-index: -1;
+        }
+
+        @keyframes float {
+            0% {
+                transform: translateY(100vh) translateX(0);
+                opacity: 0;
+            }
+
+            10% {
+                opacity: 1;
+            }
+
+            90% {
+                opacity: 1;
+            }
+
+            100% {
+                transform: translateY(-10vh) translateX(50px);
+                opacity: 0;
+            }
+        }
+
+        .hidden {
+            opacity: 0;
+            pointer-events: none;
+        }
+
+        .visible {
+            opacity: 1;
+            pointer-events: all;
+        }
+
+        .status-indicator {
+            position: fixed;
+            top: 20px;
+            right: 20px;
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-size: 0.8rem;
+            color: #666;
+            background: var(--secondary-bg);
+            border: 1px solid var(--border-color);
+            border-radius: 6px;
+            padding: 0.8rem;
+        }
+
+        .status-dot {
+            width: 8px;
+            height: 8px;
+            border-radius: 50%;
+            background: #4ade80;
+            animation: pulse 2s infinite;
+        }
+
+        @keyframes pulse {
+
+            0%,
+            100% {
+                opacity: 1;
+            }
+
+            50% {
+                opacity: 0.5;
+            }
+        }
+
+        @media (max-width: 768px) {
+            .profile-card {
+                padding: 2rem;
+                margin: 1rem;
+            }
+
+            .profile-name {
+                font-size: 1.5rem;
+            }
+
+            .music-player {
+                bottom: 10px;
+                right: 10px;
+                padding: 0.8rem;
+            }
+        }
+    </style>
 </head>
 
 <body>
@@ -25,17 +418,32 @@
             <div class="badges-card">
 
                 <div class="badges-badge" title="Icon Name">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="cnw5Sb_c79c92201fd9dbbf8582" width="1em" height="1em" viewBox="2.3 2 19.39 20"><path fill="currentColor" d="m16.06 13.09l5.63 5.59l-3.32 3.28l-5.59-5.59v-.92l2.36-2.36h.92m.91-2.53L16 9.6l-4.79 4.8v1.97L5.58 22L2.3 18.68l5.59-5.59h1.97l.78-.78L6.8 8.46H5.5L2.69 5.62L5.31 3l2.8 2.8v1.31L12 10.95l2.66-2.66l-.96-1.01L15 5.97h-2.66l-.65-.65L15 2l.66.66v2.66L16.97 4l3.28 3.28c1.09 1.1 1.09 2.89 0 3.98l-1.97-2.01l-1.31 1.31Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cnw5Sb_c79c92201fd9dbbf8582" width="1em" height="1em"
+                        viewBox="2.3 2 19.39 20">
+                        <path fill="currentColor"
+                            d="m16.06 13.09l5.63 5.59l-3.32 3.28l-5.59-5.59v-.92l2.36-2.36h.92m.91-2.53L16 9.6l-4.79 4.8v1.97L5.58 22L2.3 18.68l5.59-5.59h1.97l.78-.78L6.8 8.46H5.5L2.69 5.62L5.31 3l2.8 2.8v1.31L12 10.95l2.66-2.66l-.96-1.01L15 5.97h-2.66l-.65-.65L15 2l.66.66v2.66L16.97 4l3.28 3.28c1.09 1.1 1.09 2.89 0 3.98l-1.97-2.01l-1.31 1.31Z">
+                        </path>
+                    </svg>
                     <span class="tooltip">Staff</span>
                 </div>
 
                 <div class="badges-badge" title="Icon Name">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="cmBVw1_d55067dbb097c330111f" width="1em" height="1em" viewBox="1 1.5 22 21"><path fill="currentColor" d="m8.6 22.5l-1.9-3.2l-3.6-.8l.35-3.7L1 12l2.45-2.8l-.35-3.7l3.6-.8l1.9-3.2L12 2.95l3.4-1.45l1.9 3.2l3.6.8l-.35 3.7L23 12l-2.45 2.8l.35 3.7l-3.6.8l-1.9 3.2l-3.4-1.45l-3.4 1.45Zm2.35-6.95L16.6 9.9l-1.4-1.45l-4.25 4.25l-2.15-2.1L7.4 12l3.55 3.55Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="cmBVw1_d55067dbb097c330111f" width="1em" height="1em"
+                        viewBox="1 1.5 22 21">
+                        <path fill="currentColor"
+                            d="m8.6 22.5l-1.9-3.2l-3.6-.8l.35-3.7L1 12l2.45-2.8l-.35-3.7l3.6-.8l1.9-3.2L12 2.95l3.4-1.45l1.9 3.2l3.6.8l-.35 3.7L23 12l-2.45 2.8l.35 3.7l-3.6.8l-1.9 3.2l-3.4-1.45l-3.4 1.45Zm2.35-6.95L16.6 9.9l-1.4-1.45l-4.25 4.25l-2.15-2.1L7.4 12l3.55 3.55Z">
+                        </path>
+                    </svg>
                     <span class="tooltip">Verified</span>
                 </div>
 
                 <div class="badges-badge" title="Icon Name">
-                    <svg xmlns="http://www.w3.org/2000/svg" class="pYSNNG_6e35a26824038e290cad" width="1em" height="1em" viewBox="4.39 2 15.22 20.97"><path fill="currentColor" d="m12 8.5l2.116 5.088l5.492.44l-4.184 3.585l1.278 5.36L12 20.1l-4.702 2.872l1.278-5.36l-4.184-3.584l5.492-.44L12 8.5ZM8 2v9H6V2h2Zm10 0v9h-2V2h2Zm-5 0v5h-2V2h2Z"></path></svg>
+                    <svg xmlns="http://www.w3.org/2000/svg" class="pYSNNG_6e35a26824038e290cad" width="1em" height="1em"
+                        viewBox="4.39 2 15.22 20.97">
+                        <path fill="currentColor"
+                            d="m12 8.5l2.116 5.088l5.492.44l-4.184 3.585l1.278 5.36L12 20.1l-4.702 2.872l1.278-5.36l-4.184-3.584l5.492-.44L12 8.5ZM8 2v9H6V2h2Zm10 0v9h-2V2h2Zm-5 0v5h-2V2h2Z">
+                        </path>
+                    </svg>
                     <span class="tooltip">Premium</span>
                 </div>
 
@@ -66,7 +474,142 @@
 
     <audio id="backgroundMusic" loop></audio>
 
-    <script src="script.js"></script>
+    <script>
+        document.addEventListener("contextmenu", e => e.preventDefault());
+        document.addEventListener("keydown", e => {
+            if (e.key === "F12" || (e.ctrlKey && e.shiftKey && e.key === "I") || (e.ctrlKey && e.key === "S"))
+                e.preventDefault();
+        });
+
+        const CONFIG_URL = 'config.json';
+        const MUSIC_VOLUME = 0.3;
+
+        let config = {};
+        let audio = null;
+
+        async function loadConfig() {
+            try {
+                const response = await fetch(CONFIG_URL);
+                config = await response.json();
+            } catch (error) {
+                console.log('Config file not found, using defaults');
+                config = {
+                    "name": "#",
+                    "bio": "#",
+                    "avatar": "#",
+                    "music": {
+                        "title": "#",
+                        "artist": "#",
+                        "file": "#"
+                    },
+                    "links": [
+                        { "label": "#", "value": "#", "url": "#" },
+                        { "label": "#", "value": "#", "url": "#" },
+                        { "label": "#", "value": "#", "url": "#" },
+                        { "label": "#", "value": "#", "url": "#" }
+                    ]
+                };
+            }
+        }
+
+        function initializeProfile() {
+            document.getElementById('profileName').textContent = config.name;
+            document.getElementById('profileBio').textContent = config.bio;
+            document.getElementById('profileAvatar').src = config.avatar;
+
+            if (config.music) {
+                document.getElementById('musicTitle').textContent = config.music.title;
+                document.getElementById('musicArtist').textContent = config.music.artist;
+                audio = document.getElementById('backgroundMusic');
+                audio.src = config.music.file;
+                audio.volume = MUSIC_VOLUME;
+            }
+
+            const linksContainer = document.getElementById('profileLinks');
+            linksContainer.innerHTML = '';
+
+            config.links.forEach(link => {
+                const linkElement = document.createElement('a');
+                linkElement.className = 'profile-link';
+                linkElement.href = link.url;
+                linkElement.target = '_blank';
+                linkElement.innerHTML = `
+                    <span class="link-label">${link.label}</span>
+                    <span class="link-value">${link.value}</span>
+                `;
+                linksContainer.appendChild(linkElement);
+            });
+        }
+
+        function keepMusicPlaying() {
+            if (audio) {
+                audio.addEventListener('ended', () => {
+                    audio.currentTime = 0;
+                    audio.play().catch(e => console.log('Audio restart blocked'));
+                });
+
+                audio.addEventListener('pause', () => {
+                    setTimeout(() => {
+                        audio.play().catch(e => console.log('Audio resume blocked'));
+                    }, 100);
+                });
+            }
+        }
+
+        function enterProfile() {
+            const intro = document.getElementById('introContainer');
+            const main = document.getElementById('mainContainer');
+
+            intro.classList.add('hidden');
+            main.classList.add('visible');
+
+            if (audio) {
+                audio.play().catch(e => console.log('Audio blocked'));
+                keepMusicPlaying();
+            }
+        }
+
+        async function init() {
+            await loadConfig();
+            initializeProfile();
+
+            document.getElementById('introContainer').addEventListener('click', enterProfile);
+        }
+
+        document.addEventListener('DOMContentLoaded', init);
+
+        (function () {
+            document.addEventListener('contextmenu', e => e.preventDefault());
+
+            document.addEventListener('keydown', e => {
+                if (e.key === 'F12' ||
+                    (e.ctrlKey && e.shiftKey && e.key === 'I') ||
+                    (e.ctrlKey && e.key === 'u') ||
+                    (e.ctrlKey && e.key === 's') ||
+                    (e.metaKey && e.altKey && e.key === 'i')) {
+                    e.preventDefault();
+                    window.location.href = "/404";
+                }
+            });
+
+            if (window.top !== window.self) {
+                document.body.innerHTML = '<h1 style="color:red">Embedding not allowed</h1>';
+            }
+
+            document.onselectstart = () => false;
+        })();
+
+        if (navigator.userAgent.includes('curl') ||
+            navigator.userAgent.includes('Wget') ||
+            navigator.userAgent.includes('Python-urllib')) {
+            document.body.innerHTML = '<h1>Access denied</h1>';
+            window.stop();
+        }
+
+        document.addEventListener('DOMContentLoaded', () => {
+            setTimeout(renderProducts, 100);
+        });
+    </script>
     <div style="display:none">© skids.wiki - dont skid our website kids</div>
 </body>
 
