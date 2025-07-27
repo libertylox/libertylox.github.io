@@ -4,7 +4,7 @@ document.addEventListener("keydown", e => {
         e.preventDefault();
 });
 
-const CONFIG_URL = '../valory/config.json';
+const CONFIG_URL = 'config.json';
 const MUSIC_VOLUME = 0.3;
 
 let config = {};
