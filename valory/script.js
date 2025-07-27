@@ -64,19 +64,6 @@ function initializeProfile() {
     });
 }
 
-function createParticles() {
-    const container = document.getElementById('particles');
-
-    for (let i = 0; i < 30; i++) {
-        const particle = document.createElement('div');
-        particle.className = 'particle';
-        particle.style.left = Math.random() * 100 + '%';
-        particle.style.animationDelay = Math.random() * 10 + 's';
-        particle.style.animationDuration = (Math.random() * 5 + 5) + 's';
-        container.appendChild(particle);
-    }
-}
-
 function keepMusicPlaying() {
     if (audio) {
         audio.addEventListener('ended', () => {
@@ -108,7 +95,6 @@ function enterProfile() {
 async function init() {
     await loadConfig();
     initializeProfile();
-    createParticles();
 
     document.getElementById('introContainer').addEventListener('click', enterProfile);
 }

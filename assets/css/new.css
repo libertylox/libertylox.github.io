@@ -87,7 +87,8 @@ body {
 .header {
     position: fixed;
     top: 0;
-    width: 100%;
+    left: 0;
+    right: 0;
     background: rgba(17, 17, 17, 0.9);
     backdrop-filter: blur(10px);
     border-bottom: 1px solid var(--border-color);
@@ -109,11 +110,13 @@ body {
 .nav-links {
     display: flex;
     gap: 2rem;
+    align-items: center;
 }
 
 .nav-link {
     color: #888;
     text-decoration: none;
+    font-size: 0.9rem;
     transition: color 0.3s ease;
     text-transform: lowercase;
 }
@@ -876,11 +879,6 @@ footer {
     align-items: center;
     width: 100%;
     padding: 20px 0px;
-}
-
-.nav-link {
-    color: #fff;
-    line-height: 24px
 }
 
 .div-block {
@@ -2581,35 +2579,6 @@ section.banners img {
     height: 30px
 }
 
-.nav-link-2 {
-    margin-right: 5px;
-    margin-left: 5px;
-    padding: 5px 10px;
-    color: #1a1b1f;
-    font-size: 14px;
-    line-height: 20px;
-    letter-spacing: .25px;
-    text-decoration: none
-}
-
-.nav-link-2:hover {
-    color: rgba(26, 27, 31, .75)
-}
-
-.nav-link-2:focus-visible {
-    border-radius: 4px;
-    outline-offset: 0;
-    outline: #0050bd solid 2px;
-    color: #0050bd
-}
-
-.nav-link-2[data-wf-focus-visible] {
-    border-radius: 4px;
-    outline-offset: 0;
-    outline: #0050bd solid 2px;
-    color: #0050bd
-}
-
 .button-primary {
     padding: 12px 25px;
     background-color: #1a1b1f;
@@ -2647,10 +2616,6 @@ section.banners img {
     -ms-flex-pack: center;
     justify-content: center;
     margin-top: 20px
-}
-
-.nav-link:hover {
-    color: #4ade80
 }
 
 .container-6 {
@@ -3075,11 +3040,6 @@ section.banners img {
         margin-left: 40px
     }
 
-    .nav-link-2 {
-        padding-right: 5px;
-        padding-left: 5px
-    }
-
     .icon-2 {
         font-size: 30px
     }
@@ -3122,10 +3082,6 @@ section.banners img {
     .navbar-container {
         -ms-grid-columns: 1fr 1fr;
         grid-template-columns: 1fr 1fr
-    }
-
-    .nav-link {
-        padding-bottom: 16px
     }
 
     .div-block {
@@ -3263,11 +3219,6 @@ section.banners img {
         bottom: 34%
     }
 
-    .nav-link-2 {
-        display: inline-block;
-        padding-top: 10px;
-        padding-bottom: 10px
-    }
 }
 
 @media screen and (max-width:479px) {
